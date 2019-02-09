@@ -14,7 +14,7 @@ def main():
     word = input("Please enter a three letter word: ")
     colorList = []
     for i in word:
-        colorList += [ord(i)//16,ord(i)%16]
+        colorList += [(ord(i)//16) * 10 + ord(i)%16]
         #print("Decimal value: ", ord(i))
         #print("Hex value: ", ord(i)//16, ord(i)%16)
     print(len(colorList))
