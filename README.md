@@ -4,7 +4,7 @@
 
 [Link to repository](https://github.com/JHuyghu1/Hackathon)
 
-### Team: My name is Jeff
+### Team: Jeff the Turtle
 #### Team Names
 Dyandra Allen, Nickolas De Dios, Jordan Huyghue, Zelele Franklin
 ***
@@ -18,7 +18,6 @@ This project is a simple program that takes a three letter word and converts it 
 ## Program Design
 
 ### Non-Standard Libraries and Modules Used
-* **Pygame** (https://www.pygame.org/)-  A module set incorporating many common game development functions into python, developed by Pete Shinners and Pygame Community. Includes crucial graphical elements as well as a musical playback functionality.	
 
 ### List of Classes
 * L-system: The L-system class reads a file that would initialize an L-system. It would then create the L-system and would draw a visualization using a turtle
