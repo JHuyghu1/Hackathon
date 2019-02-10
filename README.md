@@ -1,5 +1,5 @@
 # Color Palooza
-## Hackathon
+## HackBU - Hackathon Project
 ### February 9-10, 2019
 
 [Link to repository](https://github.com/JHuyghu1/Hackathon)
