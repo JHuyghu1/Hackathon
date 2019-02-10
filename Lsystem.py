@@ -60,9 +60,9 @@ class Lsystem:
             if(ch == "F"):
                 snap.forward(self.distance)
             elif(ch == "+"):
-                snap.left(self.angle)
-            elif(ch == "-"):
                 snap.right(self.angle)
+            elif(ch == "-"):
+                snap.left(self.angle)
             elif(ch == "["):
                 self.state.append({k:v for (k,v) in snap.__dict__.items()})
             elif(ch == "]"):

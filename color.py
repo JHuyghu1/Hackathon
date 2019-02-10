@@ -10,9 +10,15 @@ import lsystem
 def colorTurtle(color):
     wn = turtle.Screen()
     wn.colormode(255)
+
     jeff = turtle.Turtle()
+    jeff.shape("turtle")
     jeff.pencolor(color)
-    sys = lsystem.Lsystem("Rules2.txt")
+    #jeff.pensize(5)
+    jeff.setpos(-325,325)
+    jeff.speed(0)
+    
+    sys = lsystem.Lsystem("Rules3.txt")
     sys.createLsystem()
     sys.drawLSystem(jeff)
     wn.exitonclick()
