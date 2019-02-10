@@ -18,7 +18,14 @@ def colorTurtle(color):
     wn.exitonclick()
 
 def main():
-    word = input("Please enter a three letter word: ")
+    while True:
+        word = input("Please enter a three letter word: ")
+        if len(word) > 3:
+            print("You idiot, I said 3-letter word")
+        elif len(word) == 0:
+            print("You idiot, enter a 3-letter word")
+        else:
+            break
     colorList = []
     for i in word:
         colorList += [(ord(i)//16) * 10 + ord(i)%16]
