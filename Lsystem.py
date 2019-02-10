@@ -1,3 +1,4 @@
+import turtle
 class Lsystem:
     """
         Reads through a file to initialize an L-system
@@ -30,7 +31,7 @@ class Lsystem:
         args: None
         return: None
     """
-    def createLsystem(self):
+    def createLsystem(self,snap,color):
         self.result = self.axiom
         for i in range(self.iteration):
             accum = ""
@@ -41,6 +42,7 @@ class Lsystem:
                 else:
                     accum += ch
             self.result = accum
+            snap.pencolor(color)
 
     """
         Returns the corresponding rule to string passed

@@ -17,20 +17,22 @@ def colorTurtle(color):
     #jeff.pensize(5)
     jeff.setpos(-325,325)
     jeff.speed(0)
-    
+
     sys = lsystem.Lsystem("Rules3.txt")
-    sys.createLsystem()
+    sys.createLsystem(jeff,color)
     sys.drawLSystem(jeff)
     wn.exitonclick()
 
 def main():
-    word = input("Please enter a three letter word: ")
+    words = []
     colorList = []
-    for i in word:
-        colorList += [(ord(i)//16) * 10 + ord(i)%16]
+    for i in range(3):
+        words = [input("Please enter a three letter word: ")]
+    for i in words:
+        colorList += [(ord(word[i])//16) * 10 + ord(word[i])%16]
     color = (colorList[0], colorList[1], colorList[2])
     print(color)
 
-    colorTurtle(color)
+    #colorTurtle(color)
 
 main()
