@@ -1,4 +1,5 @@
 import turtle
+import random
 class Lsystem:
     """
         Reads through a file to initialize an L-system
@@ -31,7 +32,7 @@ class Lsystem:
         args: None
         return: None
     """
-    def createLsystem(self,snap,color):
+    def createLsystem(self):
         self.result = self.axiom
         for i in range(self.iteration):
             accum = ""
@@ -42,7 +43,6 @@ class Lsystem:
                 else:
                     accum += ch
             self.result = accum
-            snap.pencolor(color)
 
     """
         Returns the corresponding rule to string passed
@@ -57,10 +57,11 @@ class Lsystem:
         args: snap (turtle)
         return: None
     """
-    def drawLSystem(self, snap):
+    def drawLSystem(self,snap,listOfColors):
         for ch in self.result:
             if(ch == "F"):
                 snap.forward(self.distance)
+                snap.pencolor(listOfColors[random.randint(0, len(listOfColors)-1)])
             elif(ch == "+"):
                 snap.right(self.angle)
             elif(ch == "-"):
