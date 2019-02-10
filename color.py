@@ -3,15 +3,6 @@ import random
 import lsystem
 
 """
-    Randomizes which lsystem rules are passed
-    args: None
-    return: fn (string)
-"""
-def randRules():
-    fn = "Rules" + str(random.randint(1,2)) + ".txt"
-    return fn
-
-"""
     Creates the turtle (Jeff) and screen
     args: color (tuple of ints)
     return: None
@@ -21,6 +12,9 @@ def colorTurtle(color):
     wn.colormode(255)
     jeff = turtle.Turtle()
     jeff.pencolor(color)
+    sys = lsystem.Lsystem("Rules2.txt")
+    sys.createLsystem()
+    sys.drawLSystem(jeff)
     wn.exitonclick()
 
 def main():
@@ -30,7 +24,7 @@ def main():
         colorList += [(ord(i)//16) * 10 + ord(i)%16]
     color = (colorList[0], colorList[1], colorList[2])
     print(color)
-    sys = lsystem.Lsystem(randRules())
+
     colorTurtle(color)
 
 main()
