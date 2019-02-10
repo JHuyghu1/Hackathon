@@ -24,23 +24,17 @@ def colorTurtle(color):
     wn.exitonclick()
 
 def main():
-<<<<<<< HEAD
     ''' Takes words from the user and changes them to the hex value - Adds 125 to make it lighter'''
-=======
-    while True:
+    colorList = []
+    while (len(colorList) < 9):
         word = input("Please enter a three letter word: ")
         if len(word) > 3:
             print("You idiot, I said 3-letter word")
         elif len(word) == 0:
             print("You idiot, enter a 3-letter word")
         else:
-            break
->>>>>>> 3b831ab7e27405ee9c042e755dfcd03a4e545850
-    colorList = []
-    for i in range(3):
-        word = input("Please enter a three letter word: ")
-        for char in word:
-            colorList += [(ord(char)//16) * 10 + (ord(char)%16 + 125)]
+            for char in word:
+                colorList += [(ord(char)//16) * 10 + (ord(char)%16 + 125)]
     print(colorList)
     print(len(colorList))
     for i in range(0, len(colorList), 3):
