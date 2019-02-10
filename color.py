@@ -24,14 +24,29 @@ def colorTurtle(color):
     wn.exitonclick()
 
 def main():
-    words = []
+    ''' Takes words from the user and changes them to the hex value - Adds 125 to make it lighter'''
     colorList = []
     for i in range(3):
-        words = [input("Please enter a three letter word: ")]
-    for i in words:
-        colorList += [(ord(word[i])//16) * 10 + ord(word[i])%16]
-    color = (colorList[0], colorList[1], colorList[2])
-    print(color)
+        word = input("Please enter a three letter word: ")
+        for char in word:
+            colorList += [(ord(char)//16) * 10 + (ord(char)%16 + 125)]
+    print(colorList)
+    print(len(colorList))
+    for i in range(0, len(colorList), 3):
+        (r, g,b) = (colorList[i], colorList[i+1], colorList[i+2])
+        print((r,g,b))
+        for i in range(3):
+            if r > 200 and g < 200:
+                b -= 50
+            elif r <= 200:
+                r += 50
+            elif g >= 200:
+                g -= 70
+            else:
+                b += 20
+
+    #color = (colorList[0], colorList[1], colorList[2])
+    #print(color)
 
     #colorTurtle(color)
 
