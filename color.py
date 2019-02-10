@@ -2,12 +2,25 @@ import turtle
 import random
 import lsystem
 
-def getRules():
+"""
+    Randomizes which lsystem rules are passed
+    args: None
+    return: fn (string)
+"""
+def randRules():
     fn = "Rules" + str(random.randint(1,2)) + ".txt"
     return fn
 
-def colorTurtle():
+"""
+    Creates the turtle (Jeff) and screen
+    args: color (tuple of ints)
+    return: None
+"""
+def colorTurtle(color):
     wn = turtle.Screen()
+    wn.colormode(255)
+    jeff = turtle.Turtle()
+    jeff.pencolor(color)
     wn.exitonclick()
 
 def main():
@@ -15,16 +28,9 @@ def main():
     colorList = []
     for i in word:
         colorList += [(ord(i)//16) * 10 + ord(i)%16]
-        #print("Decimal value: ", ord(i))
-        #print("Hex value: ", ord(i)//16, ord(i)%16)
-    print(len(colorList))
-    for i in range(0, (len(colorList)//2)+1, 2):
-        print(colorList[i:i+2], end = "")
-    print(" ")
-    for i in range(len(colorList)):
-        print(colorList[i], end = "")
-    print(" ")
-    sys = lsystem.Lsystem("Rules1.txt")
-    #colorTurtle()
+    color = (colorList[0], colorList[1], colorList[2])
+    print(color)
+    sys = lsystem.Lsystem(randRules())
+    colorTurtle(color)
 
 main()

@@ -1,4 +1,9 @@
 class Lsystem:
+    """
+        Reads through a file to initialize an L-system
+        args: filename (str)
+        return: None
+    """
     def __init__(self,filename):
         try:
             self.lsys = open(filename, "r")
@@ -20,11 +25,45 @@ class Lsystem:
                 self.rules[symbol] = sub
             self.lsys.close()
 
+    """
+        Creates an L-System
+        args: None
+        return: None
+    """
     def createLsystem(self):
-        pass
+        self.result = self.axiom
+        for i in range(self.iteration):
+            accum = ""
+            for c in self.result:
+                ch = self.applyRules(c)
+                if ch == None:
+                    accum += c
+                else:
+                    accum += ch
+            self.result = accum
 
+    """
+        Returns the corresponding rule to string passed
+        args: string
+        return: The value of self.rules[string]
+    """
     def applyRules(self,string):
-        pass
+        return self.rules.get(string)
 
+    """
+        Draws a visualization of the L-system
+        args: snap (turtle)
+        return: None
+    """
     def drawLSystem(self, snap):
-        pass
+        for ch in self.result:
+            if(ch == "F"):
+                snap.forward(self.distance)
+            elif(ch == "+"):
+                snap.left(self.angle)
+            elif(ch == "-"):
+                snap.right(self.angle)
+            elif(ch == "["):
+                self.state.append({k:v for (k,v) in snap.__dict__.items()})
+            elif(ch == "]"):
+                snap.__dict__ = self.state.pop()
